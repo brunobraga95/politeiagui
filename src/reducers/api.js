@@ -21,7 +21,8 @@ export const DEFAULT_STATE = {
   passwordReset: DEFAULT_REQUEST_STATE,
   updateUserKey: DEFAULT_REQUEST_STATE,
   verifyUserKey: DEFAULT_REQUEST_STATE,
-  email: ""
+  email: "",
+  keyMismatch: false,
 };
 
 const request = (key, state, { payload, error }) =>
@@ -172,6 +173,7 @@ const api = (state = DEFAULT_STATE, action) => (({
   [act.RECEIVE_UPDATED_KEY]: () => receive("updateUserKey", state, action),
   [act.REQUEST_VERIFIED_KEY]: () => request("verifyUserKey", state, action),
   [act.RECEIVE_VERIFIED_KEY]: () => receive("verifyUserKey", state, action),
+  [act.KEY_MISMATCH]: () => ({ ...state, keyMismatch: action.payload }),
   [act.REQUEST_LOGOUT]: () => request("logout", state, action),
   [act.RECEIVE_LOGOUT]: () => {
     state = receive("logout", state, action);

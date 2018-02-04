@@ -250,5 +250,7 @@ export const onPasswordResetRequest = ({
       });
   });
 
+export const keyMismatch = (payload) => dispatch => dispatch(act.KEY_MISMATCH(payload));
+
 export const resetPasswordReset = () => dispatch =>
   dispatch(act.RESET_PASSWORD_RESET_REQUEST);

@@ -1,4 +1,5 @@
 import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 import * as act from "../actions";
 import * as sel from "../selectors";
 
@@ -8,7 +9,7 @@ const verifyKeyConnector = connect(
     verifyUserKey: sel.verifyUserKey,
     verifyUserKeyError: sel.verifyUserKeyError
   }),
-  { onVerify: act.onVerifyUserKey }
+  dispatch => bindActionCreators({ onVerify: act.onVerifyUserKey, keyMismatch: act.keyMismatch }, dispatch)
 );
 
 export default verifyKeyConnector;

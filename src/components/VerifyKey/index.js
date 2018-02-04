@@ -35,7 +35,7 @@ class VerifyKey extends Component {
               body={verifyUserKeyError.message}
             />
           }
-          {verifyUserKey  && verifyUserKey.success &&
+          {verifyUserKey && verifyUserKey.success &&
             <Message
               type="success"
               header="Verification successful"
